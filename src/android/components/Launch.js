@@ -35,8 +35,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'column',
 		alignItems: 'center',
-		backgroundColor: 'rgb(74, 134, 204)',
-		color: '#ffffff'
+		backgroundColor: 'rgb(74, 134, 204)'
 	},
 	h1: {
 		fontSize: 34,

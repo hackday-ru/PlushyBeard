@@ -39,9 +39,9 @@ const Row = ({label, isComplete, complete, number}) => {
 
 const renderRow = (rowData, _, index) => (
 	<Row label={rowData.get('label')}
-	     complete={rowData.get('complete')}
-	     isComplete={rowData.get('isComplete')}
-	     number={+index} />
+		 complete={rowData.get('complete')}
+		 isComplete={rowData.get('isComplete')}
+		 number={+index}/>
 );
 
 export default class Home extends Component {
@@ -60,7 +60,7 @@ export default class Home extends Component {
 		return (
 			<View style={styles.layout}>
 				<View style={styles.imageWrapper}>
-					<Image source={require('../../resources/ui_boy.png')} style={styles.image} />
+					<Image source={require('../../resources/ui_boy.png')} style={styles.image}/>
 				</View>
 				<Text style={styles.mediumSpan}>
 					Еще {this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size} задач!
@@ -71,6 +71,9 @@ export default class Home extends Component {
 						renderRow={renderRow}
 					/>
 				</ScrollView>
+				<TouchableHighlight style={styles.addTaskBlock} onPress={() => actions.routes.addTask()}>
+					<Text style={styles.addTaskButton}>+</Text>
+				</TouchableHighlight>
 			</View>
 		);
 	}
@@ -145,5 +148,28 @@ const styles = StyleSheet.create({
 		height: 14,
 		backgroundColor: '#fff',
 		borderRadius: 7
-	}
+	},
+
+	addTaskBlock: {
+		position: 'absolute',
+		right: 10,
+		top: 10,
+		padding: 0,
+		width: 46,
+		height: 46,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'flex-start',
+		borderWidth: 1,
+		borderColor: '#fff',
+		borderRadius: 44,
+	},
+
+	addTaskButton: {
+		color: '#fff',
+		fontSize: 38,
+		position: 'absolute',
+		right: 12,
+		top: -5,
+	},
 });

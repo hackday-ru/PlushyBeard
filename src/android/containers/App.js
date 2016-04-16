@@ -16,7 +16,7 @@ import Launch from '../components/Launch';
 import Home from '../components/Home';
 import AddTask from '../components/AddTask';
 import TaskList from '../components/TaskList';
-import { increment } from '../../ios/actions/homeActions';
+import * as tasksActions from '../../ios/actions/homeActions';
 
 const mapStateToProps = state => ({
 	router: state.router,
@@ -25,9 +25,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(routerActions, dispatch),
-	homeActions: bindActionCreators({
-		increment
-	}, dispatch),
+	tasksActions: bindActionCreators(tasksActions, dispatch),
 	dispatch
 });
 
