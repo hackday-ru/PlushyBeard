@@ -1,29 +1,54 @@
-
 'use strict';
 
 import React, {
     Component,
     StyleSheet,
     Text,
+    TextInput,
+    TouchableHighlight,
     Image,
     View
 } from 'react-native';
 
-export default class MainLayout extends Component {
-  
+export default class AddTask extends Component {
+
+    componentWillMount() {
+        this.setState({
+            text: ''
+        })
+    }
+
+    createTask() {
+
+    }
+
+    cancelTask() {
+
+    }
+
     render() {
 
-        const { name } = this.props;
-
         return (
-            <View style={styles.block}>
-            	<Image source={require('../../images/ui_boy.png')} style={styles.image}></Image>
-                <Text style={styles.h1}>
-                    Делай реще
-                </Text>
+            <View style={styles.layout}>
+                <Image source={require('../../resources/ui_boy.png')} style={styles.image}></Image>
                 <Text style={styles.mediumSpan}>
-                    Агрессивный треккинг
+                    Что еще ты придумал?
                 </Text>
+                <TextInput
+                    ref="text"
+                    style={styles.textInput}
+                    onChangeText={(text) => this.setState({text})}
+                    value={this.state.text}
+                />
+
+                <TouchableHighlight style={styles.createTask} onPress={() => this.createTask()}>
+                    <Text style={styles.createTaskText}>Cоздать задачу</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight style={styles.cancelTask} onPress={this.cancelTask}>
+                    <Text  style={styles.cancelTaskText}>Отмена</Text>
+                </TouchableHighlight>
+
             </View>
         );
     }
@@ -31,34 +56,53 @@ export default class MainLayout extends Component {
 
 const styles = StyleSheet.create({
 
-	layout: {
-		paddingTop: 30,
-		flex: 1,
-		flexDirection: 'column',
-		alignItems: 'center',
-		backgroundColor: 'rgb(74, 134, 204)',
-		color: '#ffffff'
-	},
+    layout: {
+        paddingTop: 30,
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: 'rgb(74, 134, 204)',
+        color: '#ffffff'
+    },
 
-	block: {
-		alignItems: 'center',
-	},
-    h1: {
-        fontSize: 24,
-        fontWeight: '700',
-        textAlign: 'center',
-        color: '#fff'
-    },
     image: {
-		width: 110, 
-		height: 200,
-		marginBottom: 10
+        marginTop: 105,
+        width: 100,
+        height: 170,
+        marginBottom: 18
     },
+
     mediumSpan: {
         fontSize: 18,
         textAlign: 'center',
         color: '#fff'
-    }
+    },
+
+    textInput: {
+        height: 40,
+        borderBottomColor: '#ffffff',
+        borderBottomWidth: 1,
+        marginBottom: 15
+    },
+
+    createTask: {
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#ffffff',
+        borderStyle: 'solid'
+    },
+
+    createTaskText: {
+        color: '#fff'
+    },
+
+    cancelTask: {
+        padding: 10
+    },
+
+    cancelTaskText: {
+        color: '#fff'
+    },
 });
 
 
