@@ -71,7 +71,7 @@ export default class Home extends Component {
                         renderRow={renderRow}
                     />
                 </ScrollView>
-                <TouchableHighlight style={styles.addTaskBlock} onPress={() => actions.routes.addTask()}>
+                <TouchableHighlight style={styles.addTaskBlock} onPress={actions.routes.createTask()}>
                     <Text style={styles.addTaskButton}>+</Text>
                 </TouchableHighlight>
             </View>

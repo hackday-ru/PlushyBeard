@@ -35,7 +35,7 @@ const defaultSchema = {
 class App extends Component {
 	render() {
 		return (
-			<Router {...this.props} initial="createTask">
+			<Router {...this.props} initial="launch">
 				<Schema name="default" {...defaultSchema} />
 				<Route name="launch" component={Launch} hideNavBar={true} />
 				<Route name="createTask" component={CreateTask} hideNavBar={true}  />

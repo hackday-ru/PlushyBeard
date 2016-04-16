@@ -35,11 +35,15 @@ export default class CreateTask extends Component {
                         value={this.state.text} />
                 </View>
 
-                <TouchableHighlight style={styles.createTask} onPress={() => {tasksActions.addTask(this.state.text); actions.routes.home()();}}>
+                <TouchableHighlight style={styles.createTask}
+                                    underlayColor="rgb(74, 134, 204)"
+                                    onPress={() => { if(this.state.text) { tasksActions.addTask(this.state.text); actions.routes.home()();}}}>
                     <Text style={styles.createTaskText}>Cоздать задачу</Text>
                 </TouchableHighlight>
 
-                <TouchableHighlight style={styles.cancelTask} onPress={actions.routes.home()}>
+                <TouchableHighlight style={styles.cancelTask}
+                                    underlayColor="rgb(74, 134, 204)"
+                                    onPress={actions.routes.home()}>
                     <Text  style={styles.cancelTaskText}>Отмена</Text>
                 </TouchableHighlight>
 
