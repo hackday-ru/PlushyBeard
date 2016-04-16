@@ -1,25 +1,26 @@
 'use strict';
 
-import React, { Component, View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import React, {
+	Component,
+	StyleSheet,
+	Text,
+	Image,
+	View,
+	TouchableHighlight
+} from 'react-native';
 
-const styles = StyleSheet.create({
-	container: {
-		marginTop: 100
-	},
-	text: {
-		flex: 4
-	},
-	button: {
-		flex: 1
-	}
-});
-
-export default class Launch extends Component {
+export default class Layout extends Component {
 	render() {
 		const { actions } = this.props;
 		return (
-			<View style={styles.container}>
-				<Text style={styles.text}>Launch screen</Text>
+			<View style={styles.layout}>
+				<Image source={require('../../resources/ui_boy.png')} style={styles.image} />
+				<Text style={styles.h1}>
+					Делай реще
+				</Text>
+				<Text style={styles.mediumSpan}>
+					Агрессивный треккинг
+				</Text>
 				<TouchableHighlight style={styles.button} onPress={actions.routes.home()}>
 					<Text>Go to home</Text>
 				</TouchableHighlight>
@@ -27,3 +28,34 @@ export default class Launch extends Component {
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	layout: {
+		paddingTop: 30,
+		flex: 1,
+		flexDirection: 'column',
+		alignItems: 'center',
+		backgroundColor: 'rgb(74, 134, 204)',
+		color: '#ffffff'
+	},
+	h1: {
+		fontSize: 34,
+		fontWeight: '700',
+		textAlign: 'center',
+		color: '#fff'
+	},
+	image: {
+		marginTop: 105,
+		width: 100,
+		height: 170,
+		marginBottom: 18
+	},
+	mediumSpan: {
+		fontSize: 19,
+		textAlign: 'center',
+		color: '#fff'
+	},
+	button: {
+		borderColor: '#fff'
+	}
+});
