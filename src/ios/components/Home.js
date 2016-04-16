@@ -53,7 +53,7 @@ export default class Home extends Component {
 	}
 
 	render() {
-		const { homeActions: { completeTask } } = this.props;
+		const { tasksActions: { completeTask } } = this.props;
 		const listSource = this._ds.cloneWithRows(
 			this.props.home.get('tasks')
 				.map(t => t.set('complete', completeTask)));

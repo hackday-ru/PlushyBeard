@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { combineReducers, bindActionCreators } from 'redux';
 import Launch from '../components/Launch';
 import Home from '../components/Home';
-import { completeTask } from '../actions/homeActions';
+import * as tasksActions from '../actions/homeActions';
 
 const mapStateToProps = state => ({
 	router: state.router,
@@ -23,9 +23,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(routerActions, dispatch),
-	homeActions: bindActionCreators({
-		completeTask
-	}, dispatch),
+	tasksActions: bindActionCreators(tasksActions, dispatch),
 	dispatch
 });
 
