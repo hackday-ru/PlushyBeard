@@ -38,8 +38,8 @@ class App extends Component {
 		return (
 			<Router {...this.props} initial="launch">
 				<Schema name="default" {...defaultSchema} />
-				<Route name="launch" component={Launch} title="Launch" />
-				<Route name="home" component={Home} title="Home" />
+				<Route name="launch" component={Launch} hideNavBar={true} />
+				<Route name="home" component={Home} hideNavBar={true}  />
 			</Router>
 		);
 	}
