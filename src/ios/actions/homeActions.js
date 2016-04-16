@@ -1,5 +1,5 @@
 'use strict';
 
-export const INCREMENT = 'INCREMENT';
+export const COMPLETE = 'COMPLETE';
 
-export const increment = () => ({type: INCREMENT});
+export const completeTask = id => ({type: COMPLETE, id});

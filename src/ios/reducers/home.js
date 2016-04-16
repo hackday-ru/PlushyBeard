@@ -3,7 +3,7 @@
 import { List, Map } from 'immutable';
 
 import {
-	INCREMENT
+	COMPLETE
 } from '../actions/homeActions';
 
 const initialState = new Map({
@@ -14,61 +14,59 @@ const initialState = new Map({
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		}),
 		new Map({
 			label: 'second',
-			isComplete: true
+			isComplete: false
 		})
 	])
 });
 
 export function home(state = initialState, action = {}) {
 	switch(action.type) {
-		case INCREMENT:
-			return Object.assign({}, state, {
-				counter: state.counter + 1
-			});
+		case COMPLETE:
+			return state.updateIn(['tasks', action.id], t => t.set('isComplete', true));
 		default:
 			return state;
 	}
