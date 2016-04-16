@@ -53,7 +53,10 @@ export default class Home extends Component {
     }
 
     render() {
-        const { tasksActions: { completeTask } } = this.props;
+        const { actions, tasksActions: { completeTask } } = this.props;
+
+        console.warn(actions, completeTask, this.props.home.get('tasks').toJS());
+
         const listSource = this._ds.cloneWithRows(
             this.props.home.get('tasks')
                 .map(t => t.set('complete', completeTask)));
@@ -71,7 +74,9 @@ export default class Home extends Component {
                         renderRow={renderRow}
                     />
                 </ScrollView>
-                <TouchableHighlight style={styles.addTaskBlock} onPress={actions.routes.createTask()}>
+                <TouchableHighlight style={styles.addTaskBlock}
+                                    underlayColor="rgb(74, 134, 204)"
+                                    onPress={actions.routes.createTask()}>
                     <Text style={styles.addTaskButton}>+</Text>
                 </TouchableHighlight>
             </View>
@@ -153,23 +158,21 @@ const styles = StyleSheet.create({
     addTaskBlock: {
         position: 'absolute',
         right: 10,
-        top: 10,
+        top: 30,
         padding: 0,
-        width: 46,
-        height: 46,
-        flexDirection: 'row',
+        width: 30,
+        height: 30,
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         borderWidth: 1,
         borderColor: '#fff',
-        borderRadius: 44,
+        borderRadius: 23
     },
 
     addTaskButton: {
         color: '#fff',
-        fontSize: 38,
-        position: 'absolute',
-        right: 12,
-        top: -5,
+        fontSize: 30,
+        fontWeight: '300',
+        marginTop: -5
     },
 });

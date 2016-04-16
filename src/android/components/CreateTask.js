@@ -10,7 +10,7 @@ import React, {
     View
 } from 'react-native';
 
-export default class AddTask extends Component {
+export default class CreateTask extends Component {
 
     componentWillMount() {
         this.setState({
@@ -18,34 +18,32 @@ export default class AddTask extends Component {
         })
     }
 
-    createTask() {
-
-    }
-
-    cancelTask() {
-
-    }
-
     render() {
-
+        const { actions, tasksActions } = this.props;
         return (
             <View style={styles.layout}>
                 <Image source={require('../../resources/ui_boy.png')} style={styles.image}></Image>
                 <Text style={styles.mediumSpan}>
                     Что еще ты придумал?
                 </Text>
-                <TextInput
-                    ref="text"
-                    style={styles.textInput}
-                    onChangeText={(text) => this.setState({text})}
-                    value={this.state.text}
-                />
+                <View style={styles.textInputWrapper}>
+                    <TextInput
+                        ref="text"
+                        style={styles.textInput}
+                        selectionColor="#fff"
+                        onChangeText={(text) => this.setState({text})}
+                        value={this.state.text} />
+                </View>
 
-                <TouchableHighlight style={styles.createTask} onPress={() => this.createTask()}>
+                <TouchableHighlight style={styles.createTask}
+                                    underlayColor="rgb(74, 134, 204)"
+                                    onPress={() => { if(this.state.text) { tasksActions.addTask(this.state.text); actions.routes.home()();}}}>
                     <Text style={styles.createTaskText}>Cоздать задачу</Text>
                 </TouchableHighlight>
 
-                <TouchableHighlight style={styles.cancelTask} onPress={this.cancelTask}>
+                <TouchableHighlight style={styles.cancelTask}
+                                    underlayColor="rgb(74, 134, 204)"
+                                    onPress={actions.routes.home()}>
                     <Text  style={styles.cancelTaskText}>Отмена</Text>
                 </TouchableHighlight>
 
@@ -80,9 +78,18 @@ const styles = StyleSheet.create({
 
     textInput: {
         height: 40,
+        fontSize: 18,
+        fontWeight: '100',
+        color: '#fff'
+    },
+
+    textInputWrapper: {
+        alignSelf: 'stretch',
         borderBottomColor: '#ffffff',
         borderBottomWidth: 1,
-        marginBottom: 15
+        marginBottom: 15,
+        marginLeft: 23,
+        marginRight: 22
     },
 
     createTask: {
@@ -93,7 +100,9 @@ const styles = StyleSheet.create({
     },
 
     createTaskText: {
-        color: '#fff'
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: '100'
     },
 
     cancelTask: {
@@ -101,7 +110,9 @@ const styles = StyleSheet.create({
     },
 
     cancelTaskText: {
-        color: '#fff'
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: '100'
     },
 });
 

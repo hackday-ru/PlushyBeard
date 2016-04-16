@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { combineReducers, bindActionCreators } from 'redux';
 import Launch from '../components/Launch';
 import Home from '../components/Home';
-import AddTask from '../components/AddTask';
+import CreateTask from '../components/CreateTask';
 import TaskList from '../components/TaskList';
 import * as tasksActions from '../../ios/actions/homeActions';
 
@@ -40,7 +40,7 @@ class App extends Component {
 				<Schema name="default" {...defaultSchema} />
 				<Route name="launch" component={Launch} hideNavBar={true} />
 				<Route name="home" component={Home} hideNavBar={true}  />
-				<Route name="addTask" component={AddTask} hideNavBar={true} />
+				<Route name="createTask" component={CreateTask} hideNavBar={true} />
 				<Route name="taskList" component={TaskList} hideNavBar={true} />
 			</Router>
 		);
