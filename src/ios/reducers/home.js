@@ -1,14 +1,69 @@
 'use strict';
 
+import { List, Map } from 'immutable';
+
 import {
 	INCREMENT
 } from '../actions/homeActions';
 
-const initialState = {
-	counter: 0
-};
+const initialState = new Map({
+	tasks: new List([
+		new Map({
+			label: 'first',
+			isComplete: false
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		}),
+		new Map({
+			label: 'second',
+			isComplete: true
+		})
+	])
+});
 
-export function counter(state = initialState, action = {}) {
+export function home(state = initialState, action = {}) {
 	switch(action.type) {
 		case INCREMENT:
 			return Object.assign({}, state, {
