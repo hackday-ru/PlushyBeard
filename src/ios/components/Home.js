@@ -12,19 +12,22 @@ import React, {
 } from 'react-native';
 import ImmutableDataSource from 'react-native-immutable-listview-datasource'
 
-const Row = ({label, isComplete, number}) => {
+const Row = ({label, isComplete, complete, number}) => {
 	const circle =
 		isComplete ?
 			<TouchableHighlight style={styles.taskCompleteStyles}>
 				<View style={styles.taskCompleteInnerStyles}></View>
 			</TouchableHighlight> :
-			<TouchableHighlight style={styles.taskCompleteStyles}>
+			<TouchableHighlight
+				style={styles.taskCompleteStyles}
+				onPress={() => complete(number)}
+				underlayColor="rgb(74, 134, 204)">
 				<View></View>
-			</TouchableHighlight>
+			</TouchableHighlight>;
 	return (
 		<View style={styles.task}>
 			<Text style={styles.taskNum}>
-				{number}
+				{number + 1}
 			</Text>
 			<Text style={styles.taskText}>
 				{label}
@@ -36,8 +39,9 @@ const Row = ({label, isComplete, number}) => {
 
 const renderRow = (rowData, _, index) => (
 	<Row label={rowData.get('label')}
+	     complete={rowData.get('complete')}
 	     isComplete={rowData.get('isComplete')}
-	     number={+index + 1} />
+	     number={+index} />
 );
 
 export default class Home extends Component {
@@ -49,7 +53,10 @@ export default class Home extends Component {
 	}
 
 	render() {
-		const listSource = this._ds.cloneWithRows(this.props.home.get('tasks'));
+		const { homeActions: { completeTask } } = this.props;
+		const listSource = this._ds.cloneWithRows(
+			this.props.home.get('tasks')
+				.map(t => t.set('complete', completeTask)));
 		return (
 			<View style={styles.layout}>
 				<View style={styles.imageWrapper}>
