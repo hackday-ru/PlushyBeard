@@ -63,7 +63,7 @@ export default class Home extends Component {
 					<Image source={require('../../resources/ui_boy.png')} style={styles.image} />
 				</View>
 				<Text style={styles.mediumSpan}>
-					Еще 5 задач!
+					Еще {this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size} задач!
 				</Text>
 				<ScrollView style={styles.tasks}>
 					<ListView
