@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/library-2.4.0-8e09d92a794be1bf64eadd9cd235ad5423762655.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-db753ce4124cd5581b058320842dd65168660e22.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-31a9ad581b3bd3af5a9eb3c625e4b38e614a6f88.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/commons-cli/commons-cli/1.2/2bf96b7aa8b611c177d329452af1dc933e14501c/commons-cli-1.2.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="2bf96b7aa8b611c177d329452af1dc933e14501c">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/commons-cli-1.2-fb85277d43ec14421887f731da60a72aeba871df.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.5.0/4de2b4ed3445c37ec1720a7d214712e845a24636/okhttp-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/okhttp-2.5.0-5ee3cb4d3c8e5aff8c14c55930ef5a7d3ad4f5bb.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="9178570a3a28c95fabd3bc746cd68efe99ad2b47">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-43f8a1804dd785b3348f35058ff4c659750a27bb.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho/1.2.0/1d6cdb8ce8185b8b23213fad48a83987fb6d2d67/stetho-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1d6cdb8ce8185b8b23213fad48a83987fb6d2d67">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/stetho-1.2.0-cfb3521cac0c34e85e8be3e7cd8b6a3767ee8f3d.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/okio-1.6.0-25e1105648172632a525253b777e969a3d2174fa.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0-04380deae9e8ca2cdd2a1e1a4047bdbc3fd277a3.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="3836ecca4e31e18ea8fbae8e822d49777b0db4f7">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-5b5043a8c8c471f22c9e2cc90f6dc5adb5483803.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-1995d02168e801192e0c95de2430358699e4413f.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.23.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="02f58fb4e333f5f258eedc4d1bc66032059aaf70">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-d2c22ae9316c0b6a612b7da2a62a24b10134b6f9.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4af24c040b21980e0a80a505816c648e36705bd9">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-77d8e94709c4ffa3f6ef3a666a4b2ff82ea0271d.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-621df9f4dba9e06ac4e0e8076772011bbd86a2de.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.3/1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14/jackson-core-2.2.3.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="1a0113da2cab5f4c216b4e5e7c1dbfaa67087e14">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.3-d3295d17f45b9aafb1b455e24994ec2e96fcb202.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.facebook.stetho/stetho-okhttp/1.2.0/6c5c9380e245c4ff5be2b2a49dcbb0200c39798e/stetho-okhttp-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6c5c9380e245c4ff5be2b2a49dcbb0200c39798e">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/stetho-okhttp-1.2.0-03a52255e960e644df42f46ea4d96604c893079e.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp-ws/2.5.0/e9753b7dcae5deca92e871c5c759067070b07bc/okhttp-ws-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="0e9753b7dcae5deca92e871c5c759067070b07bc">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-2.5.0-ffaac5fe5630b7cc447e5a1a73de868944004372.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.1.4/129874135e6081269ace2312092031558865de12/bolts-android-1.1.4.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="129874135e6081269ace2312092031558865de12">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/bolts-android-1.1.4-1ddb48a07262ae48d0f8ef4faf95a405b2bd1aba.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="845a5b3a624946b2068963ba656c117fc453701c">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-ba9716b420d9b5a5728ca6eadffe65b0921da299.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.23.1/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="60e1da2c40a60ff372052eba4278e0cb252a3f3a">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5-05f6f5ddee3873253ffbf94302a169d7bb5572d3.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp/0.8.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="0d5d69b03cb7d68b81543f6483ed04ccb0e2235b">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-82134dd168032fc4517eaa3ab341a5b78203a80d.jar" />
+    </item>
+    <item
+        jar="/home/amurashev/work/react-native/first/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="/home/amurashev/work/react-native/first/android/app/build/intermediates/pre-dexed/debug/classes-5b95e2145038b8a9340b1b118af9deade6e062a6.jar" />
+    </item>
+
+</items>
