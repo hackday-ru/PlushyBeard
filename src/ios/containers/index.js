@@ -19,3 +19,14 @@ export default class AppContainer extends Component {
 		);
 	}
 }
+
+//make timeout for beardman
+import { checkByInterval } from '../actions/beardmanActions';
+import { CHECK_INTERVAL } from '../reducers/beardman';
+
+(function AngryMeterLoop() {
+	setTimeout(() => {
+		store.dispatch(checkByInterval());
+		AngryMeterLoop();
+	}, CHECK_INTERVAL);
+}());

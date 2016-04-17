@@ -54,6 +54,15 @@ export default class Home extends Component {
 
 	render() {
 		const { actions, tasksActions: { completeTask } } = this.props;
+		/*
+			Теперь смотри, придет так
+			const beardman = this.props.beardman;
+			const hasNewTask = beardman.get('hasNewTask'); // => false | true
+			const hasNewCompletedTask = beardman.get('hasNewCompletedTask');
+			и потом где нибудь в коды вызывваешь экшны
+			this.props.beardmanActions.markNewTask();
+			this.props.beardmanActions.markNewCompletedTask();
+		 */
 		const listSource = this._ds.cloneWithRows(
 			this.props.home.get('tasks')
 				.map(t => t.set('complete', completeTask)));

@@ -16,15 +16,18 @@ import Launch from '../components/Launch';
 import Home from '../components/Home';
 import CreateTask from '../components/CreateTask';
 import * as tasksActions from '../actions/homeActions';
+import * as beardmanActions from '../actions/beardmanActions';
 
 const mapStateToProps = state => ({
 	router: state.router,
-	home: state.home
+	home: state.home,
+	beardman: state.beardman
 });
 
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(routerActions, dispatch),
 	tasksActions: bindActionCreators(tasksActions, dispatch),
+	beardmanActions: bindActionCreators(beardmanActions, dispatch),
 	dispatch
 });
 
