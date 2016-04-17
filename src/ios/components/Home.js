@@ -52,25 +52,44 @@ export default class Home extends Component {
 		this._ds = new ImmutableDataSource();
 	}
 
+	componentDidUpdate(){
+		this.componentDidMount();
+	}
+
+	componentDidMount(){
+		if(this.props.beardman.get('hasNewCompletedTask')) {
+			setTimeout(() => {
+				this.props.beardmanActions.markNewCompletedTask();
+			}, 2000);
+		}
+		if(this.props.beardman.get('hasNewTask')) {
+			setTimeout(() => {
+				this.props.beardmanActions.markNewTask();
+			}, 2000);
+		}
+	}
+
 	render() {
 		const { actions, tasksActions: { completeTask } } = this.props;
-		/*
-			Теперь смотри, придет так
-			const beardman = this.props.beardman;
-			const hasNewTask = beardman.get('hasNewTask'); // => false | true
-			const hasNewCompletedTask = beardman.get('hasNewCompletedTask');
-			и потом где нибудь в коды вызывваешь экшны
-			this.props.beardmanActions.markNewTask();
-			this.props.beardmanActions.markNewCompletedTask();
-		 */
 		const listSource = this._ds.cloneWithRows(
 			this.props.home.get('tasks')
 				.map(t => t.set('complete', completeTask)));
-		return (
-			<View style={styles.layout}>
+
+		const beardman = this.props.beardman;
+		const hasNewTask = beardman.get('hasNewTask'); // => false | true
+		const hasNewCompletedTask = beardman.get('hasNewCompletedTask');
+		const image =
+			hasNewCompletedTask || hasNewTask ?
+				<View style={styles.imageWrapper}>
+					<Image source={require('../../resources/ui_boy_ruki.gif')} style={styles.image}/>
+				</View> :
 				<View style={styles.imageWrapper}>
 					<Image source={require('../../resources/ui_boy.png')} style={styles.image}/>
-				</View>
+				</View>;
+
+		return (
+			<View style={styles.layout}>
+				{image}
 				<Text style={styles.mediumSpan}>
 					Еще {this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size} задач!
 				</Text>

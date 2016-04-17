@@ -52,16 +52,44 @@ export default class Home extends Component {
         this._ds = new ImmutableDataSource();
     }
 
+	componentDidUpdate(){
+        if(this.props.beardman.get('hasNewCompletedTask')) {
+            setTimeout(() => {
+                this.props.beardmanActions.markNewCompletedTask();
+            }, 1000);
+        }
+	}
+
+	componentDidMount(){
+        if(this.props.beardman.get('hasNewCompletedTask')) {
+            setTimeout(() => {
+                this.props.beardmanActions.markNewCompletedTask();
+            }, 1000);
+        }
+	}
+    
     render() {
-        const { tasksActions: { completeTask } } = this.props;
+        const { actions, tasksActions: { completeTask } } = this.props;
+
         const listSource = this._ds.cloneWithRows(
             this.props.home.get('tasks')
                 .map(t => t.set('complete', completeTask)));
-        return (
-            <View style={styles.layout}>
+
+        const beardman = this.props.beardman;
+        const hasNewTask = beardman.get('hasNewTask'); // => false | true
+        const hasNewCompletedTask = beardman.get('hasNewCompletedTask');
+		const image =
+            hasNewCompletedTask ?
+                <View style={styles.imageWrapper}>
+                    <Image source={require('../../resources/ui_boy_ruki.gif')} style={styles.image}/>
+                </View> :
                 <View style={styles.imageWrapper}>
                     <Image source={require('../../resources/ui_boy.png')} style={styles.image}/>
-                </View>
+                </View>;
+
+        return (
+            <View style={styles.layout}>
+                {image}
                 <Text style={styles.mediumSpan}>
                     Еще {this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size} задач!
                 </Text>
@@ -71,7 +99,9 @@ export default class Home extends Component {
                         renderRow={renderRow}
                     />
                 </ScrollView>
-                <TouchableHighlight style={styles.addTaskBlock} onPress={actions.routes.createTask()}>
+                <TouchableHighlight style={styles.addTaskBlock}
+                                    underlayColor="rgb(74, 134, 204)"
+                                    onPress={actions.routes.createTask()}>
                     <Text style={styles.addTaskButton}>+</Text>
                 </TouchableHighlight>
             </View>
@@ -153,23 +183,21 @@ const styles = StyleSheet.create({
     addTaskBlock: {
         position: 'absolute',
         right: 10,
-        top: 10,
+        top: 30,
         padding: 0,
-        width: 46,
-        height: 46,
-        flexDirection: 'row',
+        width: 30,
+        height: 30,
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         borderWidth: 1,
         borderColor: '#fff',
-        borderRadius: 44,
+        borderRadius: 23
     },
 
     addTaskButton: {
         color: '#fff',
-        fontSize: 38,
-        position: 'absolute',
-        right: 12,
-        top: -5,
+        fontSize: 30,
+        fontWeight: '300',
+        marginTop: -5
     },
 });

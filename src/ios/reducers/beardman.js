@@ -25,7 +25,7 @@ const initialState = new Map({
 	hasNewCompletedTask: false,
 	hasNewTask: false
 });
-git 
+
 export function beardman(state = initialState, action = {}) {
 	switch(action.type) {
 		case CHECK_BY_INTERVAL:
@@ -44,13 +44,13 @@ export function beardman(state = initialState, action = {}) {
 					}
 				});
 		case ADD_TASK:
-			return state.update('angry', a => a + POINTS_TO_ADD_TASK);
+			return state.update('angry', a => a + POINTS_TO_ADD_TASK).set('hasNewTask', true);
 		case COMPLETE:
-			return state.update('angry', a => a + POINTS_TO_COMPLETE_TASK);
+			return state.update('angry', a => a + POINTS_TO_COMPLETE_TASK).set('hasNewCompletedTask', true);
 		case MARK_NEW_TASK:
-			return state.update('hasNewTask', false);
+			return state.set('hasNewTask', false);
 		case MARK_NEW_COMPLETED_TASK:
-			return state.update('hasNewCompletedTask', false);
+			return state.set('hasNewCompletedTask', false);
 		default:
 			return state;
 	}
