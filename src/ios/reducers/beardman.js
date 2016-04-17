@@ -9,6 +9,7 @@ import {
 	MARK_NEW_TASK,
 	MARK_NEW_COMPLETED_TASK
 } from '../actions/actionsConst';
+import { AppState } from 'react-native';
 
 export const MAX = 1000;
 export const MIN = 0;
@@ -90,6 +91,9 @@ export function beardman(state = initialState, action = {}) {
 					if(angry < 0 && numberOfWarnings === 0) {
 						return state.set('angry', 0).set('numberOfWarnings', 1);
 					} else if(angry < -100 && numberOfWarnings > 0) {
+						if(AppState.currentState === 'background') {
+							//TODO: notify
+						}
 						return state.set('angry', 0).set('numberOfWarnings', numberOfWarnings + 1);
 					} else {
 						return state;
