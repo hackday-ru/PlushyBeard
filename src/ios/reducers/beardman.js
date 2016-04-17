@@ -12,7 +12,8 @@ import {
 
 const MAX = 1000;
 const MIN = 0;
-const CHECK_INTERVAL = 300000; //5min
+export const CHECK_INTERVAL = 300000; //5min
+// export const CHECK_INTERVAL = 1000; //for tests every 1 sec
 
 const POINTS_TO_ADD_TASK = MAX / 100 * 3;
 const POINTS_TO_COMPLETE_TASK = MAX / 100 * 5;
@@ -32,11 +33,12 @@ export function beardman(state = initialState, action = {}) {
 				.update('angry', a => a - POINTS_BY_INTERVAL)
 				.update(state => {
 					const angry = state.get('angry');
+					console.warn('interval! ', angry);
 					const numberOfWarnings = state.get('numberOfWarnings');
 					if(angry < 0 && numberOfWarnings === 0) {
-						return state.update('angry', 0).update('numberOfWarnings', 1);
+						return state.set('angry', 0).set('numberOfWarnings', 1);
 					} else if(angry < -100 && numberOfWarnings > 0) {
-						return state.update('angry', 0).update('numberOfWarnings', numberOfWarnings + 1);
+						return state.set('angry', 0).set('numberOfWarnings', numberOfWarnings + 1);
 					} else {
 						return state;
 					}
