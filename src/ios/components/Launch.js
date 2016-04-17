@@ -22,7 +22,7 @@ export default class Layout extends Component {
 					Агрессивный треккинг
 				</Text>
 				<TouchableHighlight style={styles.button} onPress={actions.routes.home()}>
-					<Text>Go to home</Text>
+					<Text style={styles.buttonText}>Go to home</Text>
 				</TouchableHighlight>
 			</View>
 		);
@@ -55,6 +55,13 @@ const styles = StyleSheet.create({
 		color: '#fff'
 	},
 	button: {
-		borderColor: '#fff'
+		borderWidth: 1,
+		borderColor: '#ffffff',
+		borderStyle: 'solid',
+		padding: 4,
+		marginTop:7
+	},
+	buttonText: {
+		color: '#fff',
 	}
 });
