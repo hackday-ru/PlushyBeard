@@ -52,18 +52,34 @@ export default class Home extends Component {
         this._ds = new ImmutableDataSource();
     }
 
+	componentWillMount(){
+		this.setState({
+			image: require('../../resources/ui_boy.png')
+		})
+	}
+
+	componentDidMount(){
+		this.setState({image: require('../../resources/ui_boy_ruki.gif')});
+		setTimeout(() => {
+			this.setState({image: require('../../resources/ui_boy.png')});
+		}, 1000);
+	}
+
+
     render() {
         const { actions, tasksActions: { completeTask } } = this.props;
-
-        console.warn(actions, completeTask, this.props.home.get('tasks').toJS());
 
         const listSource = this._ds.cloneWithRows(
             this.props.home.get('tasks')
                 .map(t => t.set('complete', completeTask)));
+
+		const { image } = this.state;
+
+
         return (
             <View style={styles.layout}>
                 <View style={styles.imageWrapper}>
-                    <Image source={require('../../resources/ui_boy.png')} style={styles.image}/>
+                    <Image source={image} style={styles.image}/>
                 </View>
                 <Text style={styles.mediumSpan}>
                     Еще {this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size} задач!
