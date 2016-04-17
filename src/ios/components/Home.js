@@ -52,6 +52,10 @@ export default class Home extends Component {
 		super();
 
 		this._ds = new ImmutableDataSource();
+
+		this.state = {
+			talk: false
+		};
 	}
 
 	componentDidUpdate(){
@@ -71,6 +75,18 @@ export default class Home extends Component {
 		}
 	}
 
+	componentWillReceiveProps(newProps, oldProps) {
+		if(newProps.beardman.get('messageHash') !== this.props.beardman.get('messageHash')) {
+			this.setState({
+				talk: true
+			});
+
+			setTimeout(() => {
+				this.setState({talk: false});
+			}, 1000);
+		}
+	}
+
 	render() {
 		const { actions, tasksActions: { completeTask } } = this.props;
 		const listSource = this._ds.cloneWithRows(
@@ -87,20 +103,28 @@ export default class Home extends Component {
 				<View style={styles.imageWrapper}>
 					<Image source={require('../../resources/ui_boy_ruki.gif')} style={styles.image}/>
 				</View> :
-				<View style={styles.imageWrapper}>
-					<Image source={require('../../resources/ui_boy.png')} style={styles.image}/>
-				</View>;
+				this.state.talk ?
+					<View style={styles.imageWrapper}>
+						<Image source={require('../../resources/ui_boy.gif')} style={styles.image}/>
+					</View> :
+					<View style={styles.imageWrapper}>
+						<Image source={require('../../resources/ui_boy.png')} style={styles.image}/>
+					</View>;
+		const uncompletedTasksCount = this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size;
+		const message = beardman.get('message').replace('$1', uncompletedTasksCount);
+
 
 		const anrgymeter =
 			<View style={styles.angrymeterWrapper}>
 				<ProgressBar fillStyle={styles.angrymeterFill} backgroundStyle={styles.angrymeterBg} progress={progress} />
 			</View>;
+
 		return (
 			<View style={styles.layout}>
 				{anrgymeter}
 				{image}
 				<Text style={styles.mediumSpan}>
-					Еще {this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size} задач!
+					{message}
 				</Text>
 				<ScrollView style={styles.tasks}>
 					<ListView
