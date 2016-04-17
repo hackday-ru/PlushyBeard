@@ -25,7 +25,7 @@ const initialState = new Map({
 	hasNewCompletedTask: false,
 	hasNewTask: false
 });
-
+git 
 export function beardman(state = initialState, action = {}) {
 	switch(action.type) {
 		case CHECK_BY_INTERVAL:
