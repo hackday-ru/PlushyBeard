@@ -52,20 +52,22 @@ export default class Home extends Component {
         this._ds = new ImmutableDataSource();
     }
 
-	componentWillMount(){
-		this.setState({
-			image: require('../../resources/ui_boy.png')
-		})
+	componentDidUpdate(){
+        if(this.props.beardman.get('hasNewCompletedTask')) {
+            setTimeout(() => {
+                this.props.beardmanActions.markNewCompletedTask();
+            }, 1000);
+        }
 	}
 
 	componentDidMount(){
-		this.setState({image: require('../../resources/ui_boy_ruki.gif')});
-		setTimeout(() => {
-			this.setState({image: require('../../resources/ui_boy.png')});
-		}, 1000);
+        if(this.props.beardman.get('hasNewCompletedTask')) {
+            setTimeout(() => {
+                this.props.beardmanActions.markNewCompletedTask();
+            }, 1000);
+        }
 	}
-
-
+    
     render() {
         const { actions, tasksActions: { completeTask } } = this.props;
 
@@ -73,14 +75,21 @@ export default class Home extends Component {
             this.props.home.get('tasks')
                 .map(t => t.set('complete', completeTask)));
 
-		const { image } = this.state;
-
+        const beardman = this.props.beardman;
+        const hasNewTask = beardman.get('hasNewTask'); // => false | true
+        const hasNewCompletedTask = beardman.get('hasNewCompletedTask');
+		const image =
+            hasNewCompletedTask ?
+                <View style={styles.imageWrapper}>
+                    <Image source={require('../../resources/ui_boy_ruki.gif')} style={styles.image}/>
+                </View> :
+                <View style={styles.imageWrapper}>
+                    <Image source={require('../../resources/ui_boy.png')} style={styles.image}/>
+                </View>;
 
         return (
             <View style={styles.layout}>
-                <View style={styles.imageWrapper}>
-                    <Image source={image} style={styles.image}/>
-                </View>
+                {image}
                 <Text style={styles.mediumSpan}>
                     Еще {this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size} задач!
                 </Text>
