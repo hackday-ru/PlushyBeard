@@ -16,7 +16,7 @@ export default class Layout extends Component {
 			<View style={styles.layout}>
 				<Image source={require('../../resources/ui_boy.png')} style={styles.image} />
 				<Text style={styles.h1}>
-					Делай реще
+					Плюшевая борода
 				</Text>
 				<Text style={styles.mediumSpan}>
 					Агрессивный треккинг
