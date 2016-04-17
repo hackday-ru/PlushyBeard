@@ -10,7 +10,9 @@ import React, {
 	ScrollView,
 	TouchableHighlight
 } from 'react-native';
-import ImmutableDataSource from 'react-native-immutable-listview-datasource'
+import ImmutableDataSource from 'react-native-immutable-listview-datasource';
+import ProgressBar from './ProgressBar';
+import { MAX, MIN } from '../reducers/beardman';
 
 const Row = ({label, isComplete, complete, number}) => {
 	const circle =
@@ -78,6 +80,8 @@ export default class Home extends Component {
 		const beardman = this.props.beardman;
 		const hasNewTask = beardman.get('hasNewTask'); // => false | true
 		const hasNewCompletedTask = beardman.get('hasNewCompletedTask');
+		const angryValue = beardman.get('angry');
+		const progress = Math.floor((angryValue - MIN) / (MAX - MIN) * 100) / 100;
 		const image =
 			hasNewCompletedTask || hasNewTask ?
 				<View style={styles.imageWrapper}>
@@ -87,8 +91,13 @@ export default class Home extends Component {
 					<Image source={require('../../resources/ui_boy.png')} style={styles.image}/>
 				</View>;
 
+		const anrgymeter =
+			<View style={styles.angrymeterWrapper}>
+				<ProgressBar fillStyle={styles.angrymeterFill} backgroundStyle={styles.angrymeterBg} progress={progress} />
+			</View>;
 		return (
 			<View style={styles.layout}>
+				{anrgymeter}
 				{image}
 				<Text style={styles.mediumSpan}>
 					Еще {this.props.home.get('tasks').filter(t => t.get('isComplete') === false).size} задач!
@@ -149,7 +158,7 @@ const styles = StyleSheet.create({
 	task: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center',
+		alignItems: 'center'
 	},
 
 	taskNum: {
@@ -200,4 +209,20 @@ const styles = StyleSheet.create({
 		fontWeight: '300',
 		marginTop: -5
 	},
+
+	angrymeterWrapper: {
+		alignSelf: 'stretch',
+		paddingLeft: 18,
+		paddingRight: 50,
+		marginBottom: 18,
+		marginTop: 8
+	},
+
+	angrymeterFill: {
+		backgroundColor: '#ccc'
+	},
+
+	angrymeterBg: {
+		backgroundColor: 'rgb(74, 134, 204)'
+	}
 });
