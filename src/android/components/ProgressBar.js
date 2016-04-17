@@ -21,16 +21,16 @@ var styles = StyleSheet.create({
 });
 
 export default class ProgressBar extends Component {
-	
+
 	constructor(props) {
 		super();
-		
+
 		this.state = {
 			progress: new Animated.Value(props.progress)
 		}
 	}
 
-	static defaultProps() {
+	static get defaultProps() {
 		return {
 			style: styles,
 			easing: Easing.inOut(Easing.ease),
@@ -39,6 +39,7 @@ export default class ProgressBar extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
+		console.log(this.props.progress);
 		if (this.props.progress >= 0 && this.props.progress != prevProps.progress) {
 			this.update();
 		}
@@ -48,12 +49,12 @@ export default class ProgressBar extends Component {
 
 		var fillWidth = this.state.progress.interpolate({
 			inputRange: [0, 1],
-			outputRange: [0 * this.props.style.width, 1 * this.props.style.width],
+			outputRange: [0, 300]
 		});
 
 		return (
 			<View style={styles.background}>
-				<Animated.View style={styles.fill}/>
+				<Animated.View style={[styles.fill, {width: fillWidth}]}/>
 			</View>
 		);
 	}
