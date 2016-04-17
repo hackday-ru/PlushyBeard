@@ -10,10 +10,10 @@ import {
 	MARK_NEW_COMPLETED_TASK
 } from '../actions/actionsConst';
 
-const MAX = 1000;
-const MIN = 0;
-export const CHECK_INTERVAL = 300000; //5min
-// export const CHECK_INTERVAL = 1000; //for tests every 1 sec
+export const MAX = 1000;
+export const MIN = 0;
+// export const CHECK_INTERVAL = 300000; //5min
+export const CHECK_INTERVAL = 1000; //for tests every 1 sec
 
 const POINTS_TO_ADD_TASK = MAX / 100 * 3;
 const POINTS_TO_COMPLETE_TASK = MAX / 100 * 5;
